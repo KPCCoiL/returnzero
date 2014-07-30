@@ -17,7 +17,7 @@ endfunction
 function! s:normal_return()
 	let s:cline = getline('.')
 	let s:pos = col('.')
-	let s:nline = s:cline[s:pos+1:-1]
+	let s:nline = s:cline[s:pos:-1]
 	normal! D
 	call append(line('.'),s:nline)
 	normal! j==O
@@ -29,7 +29,6 @@ function! s:endl_return()
 	for i in g:returnzero_bracket
 		if s:cursorchar == i[0]
 			call append(line('.'),i[1])
-			"put = i[1]
 			normal! j==O
 			let s:flag = 1
 			break
