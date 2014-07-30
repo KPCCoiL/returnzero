@@ -1,0 +1,46 @@
+*returnzero.txt* returnを拡張するプラグイン
+
+Version: 1.0
+Author:  CoiL <copernicium[at]me[dot]com>
+License: MIT (See LICENSE)
+
+==============================================================================
+
+目次				*returnzero-contents*
+導入		|returnzero-introduction|
+使い方		|returnzero-usage|
+	キーマッピング	|returnzero-mapping|
+	設定	|returnzero-setting|
+更新履歴	|returnzero-changelog|
+
+==============================================================================
+
+導入		*returnzero-introduction*
+
+*returnzero*は、改行する際、括弧の補完と末尾の空白の削除を行うプラグインです。対応する括弧の組み合わせを指定することも出来ます。
+
+Latest version:
+https://github.com/KPCCoiL/ReturnZero
+
+==============================================================================
+
+使い方		*returnzero-usage*
+
+------------------------------------------------------------------------------
+キーマッピング		*returnzero-mapping*
+
+imap <CR> <Plug>(returnzero)
+とすると、改行時に括弧の補完と末尾の空白の削除が行われるようになります。
+
+------------------------------------------------------------------------------
+設定		*returnzero-setting*
+
+g:returnzero_bracketに文字列のリストを指定すると、それらの先頭と2番目が対応する括弧として補完されます。デフォルトでは['()','{}','[]']になっています。
+
+
+==============================================================================
+
+
+更新履歴		*returnzero-changelog*
+
+1.0	つくった
