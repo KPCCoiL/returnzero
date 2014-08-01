@@ -6,6 +6,7 @@ let g:loaded_returnzero = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
+
 if !exists("g:returnzero_bracket")
 	let g:returnzero_bracket = ['()','{}','[]']
 endif
@@ -17,10 +18,10 @@ endfunction
 function! s:normal_return()
 	let s:cline = getline('.')
 	let s:pos = col('.')
-	let s:nline = s:cline[s:pos:-1]
-	normal! D
+	let s:nline = s:cline[(s:pos):-1]
+	normal! lD
 	call append(line('.'),s:nline)
-	normal! j==O
+	normal! j==I
 endfunction
 
 function! s:endl_return()
@@ -50,7 +51,17 @@ function! s:mapret()
 	endif
 endfunction
 
-inoremap <Plug>(returnzero) <Esc>:<C-u>call <SID>mapret()<CR>S
+function! s:change_helper()
+	if s:endline()
+		nnoremap <Plug>(returnzero_helper) <Esc>S
+	else
+		nnoremap <Plug>(returnzero_helper) <Esc>I
+	endif
+endfunction
+
+inoremap <Plug>(returnzero_helper) <Esc>I
+
+imap <Plug>(returnzero) <Esc>:<C-u>call <SID>change_helper()<CR>:<C-u>call <SID>mapret()<CR><Plug>(returnzero_helper)
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

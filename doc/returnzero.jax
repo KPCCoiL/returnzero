@@ -44,3 +44,4 @@ g:returnzero_bracketに文字列のリストを指定すると、それらの先
 更新履歴		*returnzero-changelog*
 
 1.0	つくった
+1.1	行末以外で改行すると死ぬ問題の修正
