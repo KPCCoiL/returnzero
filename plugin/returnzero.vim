@@ -53,15 +53,15 @@ endfunction
 
 function! s:change_helper()
 	if s:endline()
-		nnoremap <Plug>(returnzero_helper) <Esc>S
+		nnoremap <SID>(returnzero_helper) <Esc>S
 	else
-		nnoremap <Plug>(returnzero_helper) <Esc>I
+		nnoremap <SID>(returnzero_helper) <Esc>I
 	endif
 endfunction
 
-inoremap <Plug>(returnzero_helper) <Esc>I
+inoremap <SID>(returnzero_helper) <Esc>I
 
-imap <Plug>(returnzero) <Esc>:<C-u>call <SID>change_helper()<CR>:<C-u>call <SID>mapret()<CR><Plug>(returnzero_helper)
+imap <Plug>(returnzero) <Esc>:<C-u>call <SID>change_helper()<CR>:<C-u>call <SID>mapret()<CR><SID>(returnzero_helper)
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
