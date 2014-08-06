@@ -60,8 +60,10 @@ function! s:change_helper()
 endfunction
 
 inoremap <SID>(returnzero_helper) <Esc>I
+inoremap <SID>(returnzero_call_changer) <Esc>:<C-u>call <SID>change_helper()<CR>
+inoremap <SID>(returnzero_call_mapret) :<C-u>call <SID>mapret()<CR>
 
-imap <Plug>(returnzero) <Esc>:<C-u>call <SID>change_helper()<CR>:<C-u>call <SID>mapret()<CR><SID>(returnzero_helper)
+imap <Plug>(returnzero) <SID>(returnzero_call_changer)<SID>(returnzero_call_mapret)<SID>(returnzero_helper)
 
 let &cpo = s:save_cpo
 unlet s:save_cpo

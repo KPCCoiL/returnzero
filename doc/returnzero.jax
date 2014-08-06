@@ -1,6 +1,6 @@
 *returnzero.txt* returnを拡張するプラグイン
 
-Version: 1.0
+Version: 1.2
 Author:  CoiL <copernicium[at]me[dot]com>
 License: MIT (See LICENSE)
 
@@ -45,3 +45,4 @@ g:returnzero_bracketに文字列のリストを指定すると、それらの先
 
 1.0	つくった
 1.1	行末以外で改行すると死ぬ問題の修正
+1.2	:とかをマッピングしてた時の問題を修正
